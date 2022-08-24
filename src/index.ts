@@ -1,7 +1,9 @@
-interface Mine {
-  msg: string;
-}
+const Koa = require('koa');
+const app = new Koa();
 
-const a: Mine = { msg: 'hello, world!' };
+app.use(async (ctx) => {
+  console.log(ctx.request.originalUrl);
+  ctx.body = 'Hello World';
+});
 
-console.log(a);
+app.listen(8080);
